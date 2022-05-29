@@ -1,1 +1,17 @@
-<p>home works!</p>
+<body>
+  <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Descripción de la oferta</th>
+          <th scope="col"><<button class="btn btn-secondary" (click)="nuevoComentario()">Añadir nueva oferta</button></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let comentario of this.comentarios">
+          <th scope="row">{{comentario.id}}</th>
+          <td>{{comentario.name}}</td>
+        </tr>
+      </tbody>
+  </table>
+  </body>

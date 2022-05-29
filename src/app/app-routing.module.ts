@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
-    pathMatch: 'full'   //le estamos diciendo que cualquier ruta que no encuentre la direccione a login mediante una ruta directa
+    pathMatch: 'full'   //le estamos diciendo que cualquier ruta que no encuentre la direccione a home mediante una ruta directa
   },
   {
     path: 'home',

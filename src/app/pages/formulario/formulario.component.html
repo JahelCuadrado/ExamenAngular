@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form class="container">
+    <form class="container" [formGroup]="registroForm" (ngSubmit)="onSubmit()">
         <h1>NUEVO COMENTARIO</h1>
         <div class="row">
 
@@ -18,8 +18,12 @@
               class="form-control"
               id="id"
               placeholder="id *"
+              formControlName="id"
+              [ngClass]="{ 'is-invalid': submitted && f['id'].errors }"
               required>
             </div>
+            <div *ngIf="f['id'].errors && f['id'].errors['required'] && submitted">Se requiere un id</div>
+
 
             <div class="form-group col-12">
               <label for="nombre"></label>
@@ -28,8 +32,11 @@
               class="form-control"
               id="nombre"
               placeholder="Nombre *"
+              formControlName="nombre"
+              [ngClass]="{ 'is-invalid': submitted && f['nombre'].errors }"
               required>
             </div>
+            <div *ngIf="f['nombre'].errors && f['nombre'].errors['required'] && submitted">Se requiere un nombre</div>
 
             <div class="form-group col-12">
               <label for="email"></label>
@@ -38,8 +45,12 @@
               class="form-control"
               id="email"
               placeholder="Email *"
+              formControlName="email"
+              [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
               required>
             </div>
+            <div *ngIf="f['email'].errors && f['email'].errors['required'] && submitted">Se requiere un email</div>
+            <div *ngIf="f['email'].errors && f['email'].errors['email'] && submitted">El email tiene que ser válido</div>
 
             <div class="form-group col-12">
               <label for="body"></label>
@@ -48,8 +59,11 @@
               class="form-control"
               id="body"
               placeholder="Body *"
+              formControlName="body"
+              [ngClass]="{ 'is-invalid': submitted && f['body'].errors }"
               required>
             </div>
+            <div *ngIf="f['body'].errors && f['body'].errors['required'] && submitted">Se requiere un body</div>
 
 
             <button type="submit" class="btn btn-primary red" >Registrarse</button>

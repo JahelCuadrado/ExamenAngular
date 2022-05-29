@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { CommentService } from './../../servicios/comments.service';
 import { Comentario } from './../../model/comentario';
 import { Component, OnInit } from '@angular/core';
@@ -19,7 +20,7 @@ export class FormularioComponent implements OnInit {
     //Booleana
     public comentario = new Comentario();
 
-    constructor(private formBuilder: FormBuilder, private commentService: CommentService) {
+    constructor(private formBuilder: FormBuilder, private commentService: CommentService, private router: Router) {
 
       this.registroForm = this.formBuilder.group({
         id: ['', [Validators.required]],
@@ -46,6 +47,8 @@ export class FormularioComponent implements OnInit {
     this.comentario.body = this.registroForm.value.body;
 
     this.commentService.nuevoComentario(this.comentario);
+
+    this.router.navigate(['/home']);
 
   }
 

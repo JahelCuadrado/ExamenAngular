@@ -1,3 +1,5 @@
+import { CommentService } from './../../servicios/comments.service';
+import { Comentario } from './../../model/comentario';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public comentarios: Array<Comentario> = [];
+
+  constructor(private commentsService: CommentService) { }
 
   ngOnInit(): void {
+  }
+
+  recuperarOfertas():void{
+    this.commentsService.obtenerComentarios().subscribe( respuesta => {
+      this.comentarios = respuesta;
+      console.log('Ofertas recuperadas ==>' + JSON.stringify(this.comentarios));
+    });
   }
 
 }

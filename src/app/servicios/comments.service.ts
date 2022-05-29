@@ -7,18 +7,23 @@ import { Observable } from 'rxjs';
 
 
 
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class CommentService{
 
-  
+
 
   constructor(private http: HttpClient) {}
 
   obtenerComentarios(): Observable<Array<Comentario>>{
     return this.http.get<Array<Comentario>>(AppEndPoints.ENDPOINTCOMENTARIOS);
+  }
+
+  nuevoComentario(comentario: Comentario){
+    console.log(comentario)
   }
 
 

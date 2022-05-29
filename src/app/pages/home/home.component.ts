@@ -24,6 +24,8 @@ export class HomeComponent implements OnInit {
       this.comentarios = respuesta;
       console.log('Ofertas recuperadas ==>' + JSON.stringify(this.comentarios));
     });
+
+
   }
 
   public nuevoComentario(): void{

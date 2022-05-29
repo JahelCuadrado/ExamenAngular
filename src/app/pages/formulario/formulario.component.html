@@ -14,7 +14,7 @@
             <div class="form-group col-12">
               <label for="id"></label>
               <input
-              type="text"
+              type="number"
               class="form-control"
               id="id"
               placeholder="id *"
@@ -22,7 +22,7 @@
               [ngClass]="{ 'is-invalid': submitted && f['id'].errors }"
               required>
             </div>
-            <div *ngIf="f['id'].errors && f['id'].errors['required'] && submitted">Se requiere un id</div>
+            <div *ngIf="f['id'].errors && f['id'].errors['required'] && submitted">Se requiere un id numérico</div>
 
 
             <div class="form-group col-12">

@@ -1,3 +1,5 @@
+import { CommentService } from './../../servicios/comments.service';
+import { Comentario } from './../../model/comentario';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -14,7 +16,10 @@ export class FormularioComponent implements OnInit {
     //Booleana
     public submitted = false
 
-    constructor(private formBuilder: FormBuilder) {
+    //Booleana
+    public comentario = new Comentario();
+
+    constructor(private formBuilder: FormBuilder, private commentService: CommentService) {
 
       this.registroForm = this.formBuilder.group({
         id: ['', [Validators.required]],
@@ -29,6 +34,18 @@ export class FormularioComponent implements OnInit {
 
   onSubmit():void{
     this.submitted=true
+
+    if(this.registroForm.invalid){
+      return
+    }
+
+    this.comentario.postId = 2;
+    this.comentario.id = this.registroForm.value.id;
+    this.comentario.name = this.registroForm.value.name;
+    this.comentario.email = this.registroForm.value.email;
+    this.comentario.body = this.registroForm.value.body;
+
+    this.commentService.nuevoComentario(this.comentario);
 
   }
 

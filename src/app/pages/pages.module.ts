@@ -17,3 +17,4 @@ import { NgModule } from '@angular/core';
     providers: [],
 })
 export class PagesModule {}
+
